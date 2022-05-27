@@ -7,8 +7,11 @@
 
 }
 
+header {
+    background-color: #000000;
+}
 
-li, a, button {
+li, a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -17,12 +20,15 @@ li, a, button {
 }
 
 
-header {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #000000;
+}
+
+nav ul{
+    display: flex;
 }
 
 .logo {
@@ -31,11 +37,12 @@ header {
 
 .nav_links {
     list-style: none;
+
 }
 
 
 .nav_links li {
-    display: inline-block;
+    height: 100%;
     padding: 0px 20px;
 }
 
@@ -47,24 +54,59 @@ header {
 
 .nav_links li a:hover {
     color: #009c2f;
+    border-bottom: 4px solid #009c2f;
 }
 
 
-button {
-    padding: 9px 25px;
-    background-color: rgb(29, 192, 56);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
 
-button:hover {
-    background-color: rgba(0, 156, 47, 0.8);
-}
-
-
-img {
+img logo {
     border-radius: 10px 10px;
     animation-play-state: paused
 }
+
+.toggle-button {
+    top: 25px;
+    right: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 23px;
+}
+
+.toggle-button .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+
+
+@media(max-width:750px) {
+    .list-container{
+        display: none;
+        width: 100%;
+    }
+    .toggle-button{
+        display: flex;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav_links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .list-container li {
+        text-align: center;
+    }
+
+    .list-container.active {
+        display: flex;
+    }
+}
+
+
+
+
