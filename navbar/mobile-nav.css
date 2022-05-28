@@ -1,0 +1,154 @@
+@media(max-width:750px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+        Roboto, Oxygen, 
+            Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 
+            sans-serif;
+    }
+    
+    
+    /*Css Variablen*/
+    :root {
+        --main-color: #222;
+    }
+
+    #start,
+    #anime,
+    #news,
+    #bilder,
+    #ueber-uns {
+        min-height: 100vh;                  /*Da kommt der Inhalt rein*/
+    }
+
+    h1, h2 {
+        color: #ffffff;
+    }
+    
+    body {
+        min-height: 100vh;
+        background-color: var(--main-color);
+    }
+    
+    .navigation-mobile {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: 70px;
+        background-color: #ffffff;         /*Farbe der Nav-leiste*/
+        display: flex;
+        justify-content: center;            /*Damit die Elemente Vertikal Mittig sind*/
+        align-items: center;                /*Damit die Elemente Horizontal Mittig sind*/
+    }
+    
+    .navigation-mobile ul {
+        display: flex;
+        width: 350px;
+    }
+    
+    .navigation-mobile ul li {
+        position: relative;
+        list-style: none;                   /*Damit die Punkte verschwinden*/
+        width: 70px;
+        height: 70px;
+        z-index: 1;                         /*Damit das Element im vordergrund ist*/
+    }
+    
+    .navigation-mobile ul li a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;             /*Damit die Icons über dem Text sind*/
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .navigation-mobile ul li a .icon {
+        position: relative;
+        display: block;
+        line-height: 75px;
+        font-size: 1.5em;                   /*Damit die Icons größer sind*/
+        text-align: center;
+        color: var(--main-color);
+        transition: 0.5s;                   /*Die Animations Zeit*/
+    }
+    
+    .navigation-mobile ul li.active a .icon {
+        transform: translateY(-38px);          /*damit die Icons beim darüber fahren sich nach oben bewegen*/
+    }
+    
+    .navigation-mobile ul li a .text {
+        position: absolute;
+        font-size: 0.75em;
+        color: var(--main-color);
+        opacity: 0;                            /*Damit das Element Unsichtbar ist*/
+        transition: 0.5s;
+        transform: translateY(20px);
+    }
+    
+    .navigation-mobile ul li.active a .text {
+        transform: translateY(10px);          /*damit der Text beim darüber fahren sich nach oben bewegen*/
+        opacity: 1;                           /*Damit das Element wieder sichtbar wird*/
+    }
+    
+    .bubble {
+        position: absolute;
+        top: -50%;
+        width: 70px;
+        height: 70px;
+        background-color: #00ff15;
+        border-radius: 50%;
+        transition: 0.5s;
+        border: 6px solid var(--main-color);
+    }
+    
+    /*Die Rundung beim Menü unten neben der bubble links*/
+    .bubble::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -22px;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border-top-right-radius: 20px;
+        box-shadow: 0-10px 0 0 var(--main-color);
+    }
+    
+    /*Die Rundung beim Menü unten neben der bubble rechts*/
+    .bubble::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -22px;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border-top-left-radius: 20px;
+        box-shadow: 0-10px 0 0 var(--main-color);
+    }
+    
+    .navigation-mobile ul li:nth-child(1).active ~ .bubble {
+        transform: translateX(calc(70px * 0));
+    }
+    
+    .navigation-mobile ul li:nth-child(2).active ~ .bubble {
+        transform: translateX(calc(70px * 1));
+    }
+    
+    .navigation-mobile ul li:nth-child(3).active ~ .bubble {
+        transform: translateX(calc(70px * 2));
+    }
+    
+    .navigation-mobile ul li:nth-child(4).active ~ .bubble {
+        transform: translateX(calc(70px * 3));
+    }
+    
+    .navigation-mobile ul li:nth-child(5).active ~ .bubble {
+        transform: translateX(calc(70px * 4));
+    }
+}
